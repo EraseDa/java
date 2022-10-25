@@ -18,12 +18,14 @@ public class PrintEx01 {
 		int num1 = 10;
 		int num2 = 20;
 		char operator = '+';
-		//10+20출력 되도록
+		//10+20출력 되도록 operator -> 연산자
 		
 		
 		System.out.println( num1 + operator + num2);
 		System.out.println("" + num1 + operator + num2);
 		//앞에 빈문자열 ""을 넣어주면 문자열로 되어서 정상적으로 나옴.
+		System.out.println("1"+2); //결과값이 1이라는 문자와 2라는 정수가 합해진 "1"2가 되는것임. 숫자 12가 아님.
+		System.out.println(1+2);
 	}
 
 }
