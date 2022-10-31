@@ -8,7 +8,7 @@ public class ArrayEx01 {
 		 * 자료형[] 배열명;
 		 * 
 		 * */ 
-		int arr1[], arr2[]; // arr1 : 배열, arr2: 그냥 int  : int를 공유
+		int arr1[], arr2; // arr1 : 배열, arr2: 그냥 int  : int를 공유
 		int []arr3, arr4;   // arr3 : 배열, arr4 : 배열  : int []를 공유
 		/* 배열 선언과 동시에 할당할 경우는 이렇게 (꼭 동시에 안해도 됨)
 		 * 자료형 배열명 [] = new 자료형[크기];

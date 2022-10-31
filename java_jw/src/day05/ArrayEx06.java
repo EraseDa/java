@@ -51,5 +51,13 @@ public class ArrayEx06 {
 		for(char tmp:arr1) {
 			System.out.print(tmp);		
 	}
+		/*배열 얕은 복사 (배열을 공유한다고 생각)
+		 * 
+		 * int arr1[] = new int[4];
+		 * int arr2[];
+		 * arr2=arr1;
+		 * arr2[0]=4;
+		 * arr1[0]=4
+		 * */
 	}
 }
