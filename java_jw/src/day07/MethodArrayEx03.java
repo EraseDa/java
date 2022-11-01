@@ -25,11 +25,11 @@ public class MethodArrayEx03 {
 	
 	
 	public static boolean contains(int num, int arr[]) {
-	 for(int tmp : arr) {
+	 for(int tmp : arr)   {
 		 if(num == tmp) {
 			 return true;
-		 	}
-	 	}
+		 		}
+	 		}
 	 	return false;
 	}
 }
