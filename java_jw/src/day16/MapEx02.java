@@ -17,13 +17,14 @@ public class MapEx02 {
 		System.out.println(map.get("address"));
 		System.out.println(map.get("123"));
 	}
+}
 @Data
 class User{
-	private String id,pw;
+	private String id, pw;
 	public User(String id, String pw) {
 		this.id = id;
 		this.pw =pw;
 	}
 }
 
-}
+

@@ -11,55 +11,41 @@ public class StudentManagerTest2 {
 		Student [] stds = new Student[30];
 		int count = 0;
 		int menu = -1;
-		//반복
-		for( ;menu != 4 ; ) {
-			//메뉴 출력
-			printMenu();
-			//메뉴 선택
-			 menu = sc.nextInt();
-
-			//선택한 메뉴에 따른 기능 실행
-			count = runMenu(menu, stds,count);
-
-				
-	 }
 	
+		for( ;menu != 4 ; ) {
+			printMenu();
+			menu = sc.nextInt();
+			count = runMenu(menu, stds,count);
+			}
 	}
 	
 	private static int runMenu(int menu, Student[] stds, int count) {
 		Scanner sc = new Scanner(System.in);
 		switch(menu) {
 			case 1 :
-				
-			if(addStudent(stds,count)) {
+				if(addStudent(stds,count)) {
 				System.out.println("학생을 추가했습니다.");
 				count++;
-			}else {
+				}  else {
 				System.out.println("학생을 추가하지 못했습니다.");
-			}
-		
-		break;
-		case 2 : 
-		
-			boolean res = addScore(stds, count);
-			
-			
-			if (res) {
-				System.out.println("성적을 등록했습니다.");
-			} else {
-				System.out.println("성적 등록에 실패했습니다.");
-			}
-			break;		
-		case 3 :
-			printStudentList(stds,count);
-			break;
-		case 4 : 
-			System.out.println("프로그램 종료");
-			break;
-		default :
+			} break;
+			case 2 : 
+				boolean res = addScore(stds, count);
+					if (res) {
+							System.out.println("성적을 등록했습니다.");
+						}	 else {
+							System.out.println("성적 등록에 실패했습니다.");
+						}	break;		
+			case 3 :
+					printStudentList(stds,count);
+				break;
+			case 4 : 
+				System.out.println("프로그램 종료");
+				break;
+			default :
 			System.out.println("잘못된 메뉴!!");
+		
 		}
-
 		return count;
 	}
 

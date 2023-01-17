@@ -86,7 +86,7 @@ public class Score {
 			this.midScore = midScore;
 			this.finalScore = finalScore;
 			this.performance = performance;
-
+			this.total = midRate*midScore + finaRate*finalScore + performanceRate*performance;
 	}
 	
 	

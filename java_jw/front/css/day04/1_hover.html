@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>hover예제</title>
+	<style>
+	*{padding: 0; margin: 0;}
+	ul{list-style: none;}
+	a{text-decoration: none; color: black;}
+	.menu-item{
+		width: 300px; height: 50px;
+	}
+	.menu-link{
+		/* 인라인은 컨텐츠만큼 블락은 부모너비만큼 */
+		display: block; background: red; height: 100%; border: 5px solid black;
+		text-align: center; line-height: 50px; 
+		font-size: 25px; color: black; font-weight: bold;
+	}
+	.submenu-list{
+		margin-top: -5px; display: none;
+	}
+	.submenu-item{
+		height: 50px; 
+	}
+	.submenu-item~.submenu-item{
+		margin-top: -5px;
+	}
+	.submenu-link{
+		/* 라인 하이트는 위아래상태에서의 글자를 중간으로 맞춰줄 때 사용 */
+		display: block; height: 100%; border: 5px solid black;
+		text-align: center; line-height: 50px;
+		box-sizing: border-box;
+		font-size: 25px; color: black; font-weight: bold;
+	}
+	.menu-item:hover .submenu-list{
+		display: block;
+	}
+	</style>
+</head>
+<body>
+	<ul class="menu-list">
+		<li class="menu-item">
+			<a href="#" class="menu-link">메뉴1</a>
+			<ul class="submenu-list">
+				<li class="submenu-item">
+					<a href="#" class="submenu-link">메뉴1-1</a>a
+				</li>
+				<li class="submenu-item">
+					<a href="#" class="submenu-link">메뉴1-2</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>
