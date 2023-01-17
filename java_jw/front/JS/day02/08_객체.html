@@ -44,10 +44,13 @@
 		console.log(`'printHello' in user : ${'printHello' in user}`);
 
 		/* 객체의 값을 반복문으로 확인하는 방법
-		for in문, for of문
+		for in문 : 객체의 모든 열거 가능한 속성에 대해 반복
 		for(변수명 in 객체명){
 			//이 때 변수명은 속성값을 가져옴
 		}
+		for of문 : [Symbol.iterator]속성을 가진느 컬렉션 전용
+		Array, Map, Set, String 등
+
 		for(변수명 of 객체명){
 			//이 때 변수명은 값을 가져옴
 		}*/
@@ -55,10 +58,12 @@
 		for(property in user){
 			console.log(`user.${property} = ${user[property]}`);
 		}
-
+		//에러 발생
+		/*
 		for(value in user){
 			console.log(value);
 		}
+		*/
 		/*상수 객체는 속성들을 수정할 수는 있지만 객체를 바꿀 수 없음*/
 		const book = {
 			name : '이것이 자바다',
