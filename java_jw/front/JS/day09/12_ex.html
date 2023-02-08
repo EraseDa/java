@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="../js/jquery.min.js"></script>
+	<style>
+		.box {
+			width: 600px;
+			height: 100px;
+			border: 1px solid black;
+		}
+
+		.container-box__box {
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container-box box">
+		<div class="container-box__box box">1</div>
+		<div class="container-box__box box">2</div>
+		<div class="container-box__box box">3</div>
+		<div class="container-box__box box">4</div>
+		<div class="container-box__box box">5</div>
+		<div class="container-box__box box">6</div>
+	</div>
+	<script>
+
+
+		$(document).ready(function (){
+			con();
+		});
+
+		function con(){
+			$('.container-box__box').animate({top:"-=102px"},2000,con);
+		}
+		
+		
+
+	</script>
+</body>
+</html>

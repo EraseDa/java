@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="../js/jquery.min.js"></script>
+	<style>
+		.box{
+			height: 50px; line-height: 50px; border: 1px solid black;
+			width: 200px; text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<label>
+		<input type="checkbox" name="fruit" value="바나나">바나나
+	</label>
+		
+	
+	<script>
+		$('[name=fruit]').click(function(){
+			let text = '';
+			
+			if($(this).prop('checked'))
+			text = $(this).val();
+			$('.box').text(text);
+		})
+	</script>
+</body>
+</html>

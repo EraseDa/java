@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.container {
+			display: flex;
+			
+		}
+		.container div{
+			border: 1px solid black;
+			width: 150px;
+			height: 50px;	
+		}
+		.container div:nth-child(2), .container div:nth-child(3){
+			margin-left: -1px;
+			
+		}
+		.bg-yellow{background-color: yellow;}
+		.bg-red{background-color: red;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="container__01" onclick="backgroundChange();"></div>
+		<div class="container__02" onclick="backgroundChange();"></div>
+		<div class="container__03" onclick="backgroundChange();"></div>
+	</div>
+	<script>
+		function backgroundChange(){
+			let a = document.querySelectorAll('.container > div');
+			a.forEach((item)=>{
+				item.onclick= () => {
+					a.forEach((item)=>{
+						item.classList.remove('bg-yellow');
+					})
+					item.classList.add('bg-yellow');
+				}
+			})
+		
+		}
+	</script>
+</body>
+</html>

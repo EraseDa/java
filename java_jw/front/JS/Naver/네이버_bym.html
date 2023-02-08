@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>내가만든네이버</title>
+	<style>
+		*{margin: 0; padding: 0;}
+		ul,ol{list-style: none;}
+		a{text-decoration: none;}
+		#body{
+			height: 1000px;
+			min-width: 1190px; 
+			font-family: -apple-system,BlinkMacSystemFont,"Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;
+			line-height: 16px; font-size: 12px; color: #202020;
+		}
+		a{text-decoration: none;}
+		.top-banner{
+			position: relative; height: 160px;
+		}
+		.top-banner-group{
+			position: relative; width: 1130px; height: 100%;
+			margin: 0 auto; padding: 0 30px;
+		}
+		.top-service{
+			position: absolute; top: 12px; right: 27px;
+		}
+		.top-service .service-startpage{
+			float: left; font-size: 11px; color: #404040;
+		}
+		.top-service .service-startpage::after{
+			display: inline-block; width: 26px; height: 26px; background-position: -382px -213px;
+			vertical-align: top; content: ''; margin: -3px 0 0 3px;
+		}
+	
+		.icon-bar{
+			float: left; width: 1px; height: 10px; margin: 3px 7px; background-color: #e4e8eb;
+		}
+		.service-jnaver{
+			float: left;
+		}
+		.service-jnaver .icon-jnaver{
+			display: inline-block; width: 60px; height: 10px;
+			background-position: -264px -296px;
+			vertical-align: top; margin: 3px;
+		}
+		.service-jnaver .icon-jnaver:hover{
+			background-position: -326px -296px;
+		}
+		.logo_naver{
+			position: absolute; top: 50%; left: -9px; margin-top: -32px;
+		}
+		.logo_naver .logo_naver_link{
+			display: inline-block; width: 222px; height: 52px;
+			background-position: 0 -158px; vertical-align: top; content: '';
+		}
+		h1{
+			display: block; margin-block-start: 0.67em;
+			margin-block-end: 0.67em; 
+		}
+		.top-menu-container{
+			position: relative; width: 1130px;
+			padding: 0 30px;
+			margin: 0 auto;
+		}
+		.top-menu-group{
+			overflow: hidden;
+			position: relative; padding: 11px 270px 11px 0;
+			
+		}
+		.top-menu-navi{
+			float: left; font-size: 15px; line-height: 30px; font-weight: 700;
+			letter-spacing: -.3px; 
+		}
+		.mail{
+			display: inline-block; width: 21px; height: 21px;
+			background-position: -420px -73px; vertical-align: top;
+			margin: 3px 9px 0 0;
+		}
+		.top-menu-navi .navi-item-list{
+			float: left; margin-left: 12px; 
+		}
+		.navi-item{
+			color: #03c75a;
+		}
+	
+		.navi-item .shopping{
+			width: 24px; height: 20px; background-position: -76px -386px;
+			content: ''; display: inline-block; vertical-align: top;
+			}
+	
+		.blind{
+			position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden;
+		}
+		.img1::after, .icon-jnaver.img1, .logo_naver_link.img1, .mail.img1, .shopping.img1{
+			background-image:url(이미지/이미지1.png);
+			background-size: 442px 428px;
+		}
+	</style>
+</head>
+<body>
+	<div class="top">
+		<div class="top-banner">
+			<div class="top-banner-group">
+				<div class="top-logo">
+					<h1 class="logo_naver">
+						<a href="https://naver.com" class="logo_naver_link img1">
+							<span class="blind">네이버</span>
+						</a>
+					</h1>
+				</div>
+				<div class="top-service">
+					<a href="#" class="service-startpage img1">네이버를 시작페이지로</a>
+					<i class="icon-bar"></i>
+					<a href="#" class="service-jnaver">
+						<i class="icon-jnaver img1">
+							<span class="blind">쥬니어네이버</span>
+						</i>
+					</a>
+					<a href="#" class="service-happybin">해피빈</a>
+				</div>
+				<div class="top-search">
+					<form action="#" method="get";>
+						<div class="green_search" style="border-color: #6399de ;"></div>
+					</form>
+				</div>
+			</div>
+			<div class="top-menu-container">
+				<div class="top-menu-group">
+					<ul class="top-menu-navi">
+						<li class="navi-item-list">
+							<a href="#" class="navi-item">
+								<i class="mail img1"></i>메일
+							</a>
+						</li>
+						<li class="navi-item-list">
+							<a href="#" class="navi-item">카페</a>
+						</li>
+						<li class="navi-item-list">
+							<a href="#" class="navi-item">블로그</a>
+						</li>
+						<li class="navi-item-list">
+							<a href="#" class="navi-item">지식iN</a>
+						</li>
+						<li class="navi-item-list">
+							<a href="#" class="navi-item">
+								<i class="shopping img1" id="shopping"></i>
+									<span class="blind">쇼핑</span>
+								</a>
+						</li>
+						<li class="navi-item-list">
+							<a href="#" class="navi-item">쇼핑live</a>
+						</li>
+						<li class="navi-item-list">
+							<a href="#" class="navi-item">Pay</a>
+						</li>
+						<li class="navi-item-list">
+							<a href="#" class="navi-item">TV</a>
+						</li>
+						
+
+					</ul>
+				</div>
+			</div>
+		</div>	
+		<div class="top-menu"></div>
+	</div>
+</body>
+</html>

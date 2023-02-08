@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="../js/jquery.min.js"></script>
+<style>
+	.btn{
+		width: 50px; height: 50px;
+	}
+	.menu-box{
+		position: fixed; right: 0; top: 0; bottom: 0;
+		width: 200px; border: 1px solid black;
+		display: none;
+	}
+	.btn-close{
+		position: absolute; top: 0; right: 0;
+		width: 50px; height: 50px;
+		font-size: 40px;
+		background-color: inherit;
+		border: 0;
+		cursor: pointer;
+	}
+
+</style>
+</head>
+<body>
+	<button class="btn">메뉴</button>
+	<div class="menu-box">
+		<button class="btn-close">x</button>
+	</div>
+	<script>
+	$('.btn').click(function(){
+		$('.menu-box').show();
+	});
+	$('.btn-close').click(function(){
+		$('.menu-box').hide();
+	});
+	</script>
+</body>
+</html>

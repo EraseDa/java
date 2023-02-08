@@ -1,0 +1,11 @@
+.main-top {
+	display: flex;
+
+}
+.main-top__text {
+	width: 50%;
+}
+.main-top__img {
+	width: 50%;
+	background-image: url(../img/rangers-1402096_960_720.jpg);
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="../js/jquery.min.js"></script>
+	<style>
+		.box{
+			height: 50px; line-height: 50px; border: 1px solid black;
+			width: 200px; text-align: center;
+			margin: 0 10px;
+		}
+
+		.container-box {
+			display: flex;
+		}
+
+		.container-label{
+			display: block;
+			margin-right: 500px;
+		}
+		
+	</style>
+</head>
+<body>
+	<main class="main-box">
+		<div class="container-box">
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+		</div>
+		<div class="container-label">
+			<label>
+				<input type="checkbox" name="fruit" value="바나나">바나나
+			</label>
+			<label>
+				<input type="checkbox" name="fruit" value="사과">사과
+			</label>
+			<label>
+				<input type="checkbox" name="fruit" value="오렌지">오렌지
+			</label>
+		</div>	
+	</main>
+	
+	<script>
+
+		$('[name=fruit]').click(function(){
+			let arr = getCheckValue();
+			$('.box').text('');
+			arr.forEach(function(item,index,arr){
+				$('.box').each(function(boxIndex){
+					if(arrIndex==boxIndex){
+						$(this).text(item);
+					}
+
+				})
+			})
+		});
+
+		function getCheckValue(){
+			let arr = [];
+			let checkboxList = $('[name=fruit]');
+			if(!checkboxList)
+				return;
+			checkboxList.each(function(){
+				if($(this).prop('checked'))
+					arr.push($(this).val());
+			});	
+			return arr;
+		}
+	</script>
+</body>
+</html>

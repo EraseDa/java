@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="../js/jquery.min.js"></script>
+	<style>
+		.containerBox{
+			display: flex;
+			position: relative;
+			flex-direction: column;
+		}
+		.containerBox__menu, .containerBox__contents {
+			display: flex;
+			position: relative;
+		}
+		.containerBox__menu-title{
+			width: 100px;
+			height: 50px;
+			background-color: tomato;
+			border: 1px solid black;
+		}
+		.containerBox__menu div:nth-child(2), .containerBox__menu div:nth-child(3){
+			margin-left: -1px;
+		}
+		.containerBox__contents div:nth-child(2), .containerBox__contents div:nth-child(3){
+			margin-left: -1px;
+		}
+		.containerBox__contents-c{
+			border: 1px solid black;
+			width: 100px;
+			height: 100px;
+			background-color: thistle;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="containerBox">
+		<div class="containerBox__menu">
+			<div class="containerBox__menu-title">메뉴1</div>
+			<div class="containerBox__menu-title">메뉴2</div>
+			<div class="containerBox__menu-title">메뉴3</div>
+		</div>
+		<div class="containerBox__contents">
+			<div class="containerBox__contents-c">메뉴1</div>
+			<div class="containerBox__contents-c">메뉴2</div>
+			<div class="containerBox__contents-c">메뉴3</div>
+		</div>	
+	</div>
+</body>
+</html>
