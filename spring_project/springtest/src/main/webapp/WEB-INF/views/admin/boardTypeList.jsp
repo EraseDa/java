@@ -14,37 +14,38 @@
       </tr>
     </thead>
     <tbody>
-     <c:forEach items="${list}" var="bt">
+    <!-- items는 배열이나 리스트를 넣어주면 되고, var는 배열이나 리스트에서 하나 꺼냈을 때의 이름 -->
+     <c:forEach items="${btList}" var="bt" varStatus="vs">
       <tr>
       	<form action="<c:url value=''></c:url>" method="post">
-	        <td>${bt.bt_num }<input type="hidden" value="1"></td>
+	        <td>${vs.count }<input type="hidden" value="${bt.bt_num }" name="bt_num"></td>
 	        <td>
 	        <div class="form-group">
-			  <select class="form-control" name="">
-			    <option>일반</option>
-			    <option>이미지</option>
+			  <select class="form-control" name="bt_type">
+			    <option <c:if test="${bt.bt_type == '일반' }" >selected</c:if>>일반</option>
+			    <option <c:if test="${bt.bt_type == '이미지' }" >selected</c:if>>이미지</option>
 			  </select>
 			</div>
 			</td>
 	        <td>
 	        	<div class="form-group">
-	  			<input type="text" class="form-control" name="" value="${bt.bt_name }">
+	  			<input type="text" class="form-control" name="bt_name" value="${bt.bt_name }">
 				</div>
 			</td>
 	        <td>
 		        <div class="form-group">
-				  <select class="form-control" name="">
-				    <option value="0">비회원이상</option>
-				    <option value="1">회원이상</option>
-				    <option value="9" selected>관리자이상</option>
+				  <select class="form-control" name="bt_r_authority">
+				    <option value="0" <c:if test="${bt.bt_r_authority == 0 }" >selected</c:if>>비회원이상</option>
+				    <option value="1" <c:if test="${bt.bt_r_authority == 1 }" >selected</c:if>>회원이상</option>
+				    <option value="9" <c:if test="${bt.bt_r_authority == 9 }" >selected</c:if>>관리자이상</option>
 				  </select>
 				</div>
 			</td>
 	        <td>
 	        	<div class="form-group">
-				  <select class="form-control" name="">
-				    <option value="1">회원이상</option>
-				    <option value="9">관리자이상</option>
+				  <select class="form-control" name="bt_w_authority">
+				    <option value="1" <c:if test="${bt.bt_w_authority == 1 }" >selected</c:if>>회원이상</option>
+				    <option value="9" <c:if test="${bt.bt_w_authority == 9 }" >selected</c:if>>관리자이상</option>
 				  </select>
 				</div>
 	        </td>
