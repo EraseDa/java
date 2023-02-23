@@ -11,13 +11,13 @@ public class MessageUtils {
 		response.setCharacterEncoding("UTF-8");
 	}
 	public static void alertAndMovePage(HttpServletResponse response,
-			String text, String contextPaht, String url) {
+			String text, String contextPath, String url) {
 		init(response);
 		PrintWriter out;
 		try {
 			out = response.getWriter();
 			out.println("<script>alert('"+text+"');" +
-					"location.href='"+contextPaht+url+"'</script>");
+					"location.href='"+contextPath+url+"'</script>");
 			out.flush();
 		} catch (IOException e) {
 			e.printStackTrace();

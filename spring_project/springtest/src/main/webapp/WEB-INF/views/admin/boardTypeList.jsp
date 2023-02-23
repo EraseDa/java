@@ -17,7 +17,7 @@
     <!-- items는 배열이나 리스트를 넣어주면 되고, var는 배열이나 리스트에서 하나 꺼냈을 때의 이름 -->
      <c:forEach items="${btList}" var="bt" varStatus="vs">
       <tr>
-      	<form action="<c:url value=''></c:url>" method="post">
+      	<form action="<c:url value='/admin/board/type/update'></c:url>" method="post">
 	        <td>${vs.count }<input type="hidden" value="${bt.bt_num }" name="bt_num"></td>
 	        <td>
 	        <div class="form-group">
@@ -59,11 +59,11 @@
     </tbody>
     <tfoot>
     <tr>
-      	<form action="<c:url value=''></c:url>" method="post">
+      	<form action="<c:url value='/admin/board/type/insert'></c:url>" method="post">
 	        <td></td>
 	        <td>
 	        <div class="form-group">
-			  <select class="form-control" name="">
+			  <select class="form-control" name="bt_type">
 			    <option>일반</option>
 			    <option>이미지</option>
 			  </select>
@@ -71,12 +71,12 @@
 			</td>
 	        <td>
 	        	<div class="form-group">
-	  			<input type="text" class="form-control" name="" value="">
+	  			<input type="text" class="form-control" name="bt_name" value="">
 				</div>
 			</td>
 	        <td>
 		        <div class="form-group">
-				  <select class="form-control" name="">
+				  <select class="form-control" name="bt_r_authority">
 				    <option value="0">비회원이상</option>
 				    <option value="1">회원이상</option>
 				    <option value="9">관리자이상</option>
@@ -85,7 +85,7 @@
 			</td>
 	        <td>
 	        	<div class="form-group">
-				  <select class="form-control" name="">
+				  <select class="form-control" name="bt_w_authority">
 				    <option value="1">회원이상</option>
 				    <option value="9">관리자이상</option>
 				  </select>
