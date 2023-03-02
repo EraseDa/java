@@ -73,23 +73,26 @@ public class HomeController {
 			mv.setViewName("redirect:/");
 		else
 			mv.setViewName("redirect:/login");
-		System.out.println(user);
 		return mv;
 	}
+	
 	@RequestMapping(value = "/logout", method=RequestMethod.GET)
-	public ModelAndView logout(ModelAndView mv, HttpSession session, HttpServletResponse response) throws IOException { {
+	public ModelAndView logout(ModelAndView mv, 
+			HttpSession session,
+			HttpServletResponse response) throws IOException {
 		MemberVO user = (MemberVO)session.getAttribute("user");
-		if(user !=null) {
+		if(user != null) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('로그아웃 되었습니다.'); location.href='/spring/' </script>");
+			out.println("<script>alert('로그아웃 되었습니다.');location.href='/spring/'</script>");
 			out.flush();
 		}
 		//세션에 있는 회원 정보를 삭제
 		session.removeAttribute("user");
 		mv.setViewName("redirect:/");
 		return mv;
-	}}
+	}
+	
 	
 	@RequestMapping(value = "/ex1")
 	public ModelAndView ex1(ModelAndView mv,String name, Integer age) {

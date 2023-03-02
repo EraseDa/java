@@ -1,4 +1,4 @@
-package kr.kh.spring.Interceptor;
+package kr.kh.spring.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,8 +10,8 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import kr.kh.spring.vo.MemberVO;
 
-public class LoginInterceptor extends HandlerInterceptorAdapter {
-
+public class LoginInterceptor extends HandlerInterceptorAdapter  {
+	
 	@Override
 	public void postHandle(
 	    HttpServletRequest request, 
