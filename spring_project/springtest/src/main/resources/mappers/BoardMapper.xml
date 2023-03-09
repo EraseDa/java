@@ -14,7 +14,22 @@
   insert into board_type(bt_type, bt_name, bt_r_authority, bt_w_authority)
 		 values(#{bt.bt_type}, #{bt.bt_name}, #{bt.bt_r_authority}, #{bt.bt_w_authority})
   </insert>
-  <update id="updateBoardType">
-  
-  </update>
+    <insert id="insertBoard" useGeneratedKeys="true" keyProperty="bo.bo_num">
+  	insert into board(bo_num, bo_title, bo_content, bo_me_id, bo_bt_num, bo_ori_num)
+  	select ifnull(max(bo_num), 0)+1, #{bo.bo_title}, #{bo.bo_content}, #{bo.bo_me_id},
+  		#{bo.bo_bt_num}, ifnull(max(bo_num), 0)+1
+  		from board
+  </insert>
+  <insert id="insertFile">
+  	insert into file(fi_bo_num, fi_name, fi_ori_name)
+  	values(#{file.fi_bo_num},#{file.fi_name},#{file.fi_ori_name})
+  </insert>
+  <select id="selectBoardList" resultType="kr.kh.test.vo.BoardVO">
+  	select * from board 
+  		order by bo_num desc
+  		limit #{cri.pageStart}, #{cri.perPageNum}
+  </select>
+  <select id="selectTotalCountBoard" resultType="int">
+  	select count(*) from board
+  </select>
 </mapper>
