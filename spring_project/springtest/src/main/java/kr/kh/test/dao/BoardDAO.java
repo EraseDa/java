@@ -29,4 +29,19 @@ public interface BoardDAO {
 
 	int selectTotalCountBoard(@Param("cri")Criteria cri);
 
+	int updateViews(@Param("bo_num")int bo_num);
+
+	BoardVO selectBoard(@Param("bo_num")int bo_num);
+
+	ArrayList<FileVO> selectFileList(@Param("bo_num")int bo_num);
+
+	void deleteFile(@Param("fi_num")int fi_num);
+
+	int deleteBoard(@Param("bo_num")int bo_num);
+
+	FileVO selectFile(@Param("fi_num")int fileNum);
+
+	int updateBoard(@Param("board")BoardVO board);
+	
+
 }
