@@ -10,7 +10,7 @@ label.error{color:red;}
   		<label for="id">아이디:</label>
   		<input type="text" class="form-control" id="id" name="me_id">
 	</div>
-		<button class="btn btn-outline-success col-12" type="button" onclick="alert('추후 구현')">아이디 중복 확인</button>
+		<button class="btn btn-outline-success col-12 btn-check" type="button">아이디 중복 확인</button>
 	<div class="form-group">
   		<label for="pw">비번:</label>
   		<input type="password" class="form-control" id="pw" name="me_pw">
@@ -31,6 +31,43 @@ label.error{color:red;}
 	</form>
 	<script src="<c:url value='/resources/js/jquery.validate.js'></c:url>"></script>
 	<script src="<c:url value='/resources/js/jquery.validate.addition.js'></c:url>"></script>
+	<script>	
+	
+	let idCheck = false;
+	$('.btn-check').click(function(){
+		
+		let me_id = $('#id').val();
+		if(me_id.trim().length==0){
+			alert("아이디를 입력하세요!");
+			return;
+		}
+		let url= '<c:url value="/check/id"></c:url>';
+		let method = 'post';
+		let obj ={
+				me_id : me_id
+		}
+		$.ajax({
+		        async:false,
+		        type:method,
+		        data:JSON.stringify(obj),
+		        url:url,
+		        dataType:"json",
+		        contentType:"application/json; charset=UTF-8",
+		        success : function(data){
+		            if(data.res){
+		            	alert("사용가능한 아이디입니다.");
+		            	idCheck=true;
+		            }else{
+		            	alert("이미 사용중인 아이디입니다.");
+		            }
+		        }
+		  });
+	});
+	//아이디 내용이 바뀌면 다시 false로 돌아가는 메소드
+	$('#id').change(function(){
+		idCheck=false;
+	});
+	</script>
 	<script>
 	$('form').validate({
 		rules : {
