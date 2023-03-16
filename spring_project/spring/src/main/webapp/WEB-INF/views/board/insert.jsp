@@ -22,6 +22,7 @@
 <div class="container">
 	<h1>게시글 작성</h1>
 	<form action="<c:url value='/board/insert'></c:url>" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="bo_ori_num" value="${bo_ori_num }">
 		<div class="form-group">
 			<label for="type">게시판:</label>
 			<select class="form-control" name="bo_bt_num" id="type">

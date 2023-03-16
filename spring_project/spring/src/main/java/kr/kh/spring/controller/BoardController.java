@@ -42,7 +42,8 @@ public class BoardController {
 	}
 	@RequestMapping(value = "/board/insert", method=RequestMethod.GET)
 	public ModelAndView boardInsert(ModelAndView mv,
-			HttpServletRequest request) {
+			HttpServletRequest request,
+			Integer bo_ori_num) {
 		//세션에서 회원 정보를 가져옴(게시판을 가져오기 오기 위해서)
 		// => 쓰기 권한이 있는 게시판을 가져오기 위한 작업
 		MemberVO user = 
@@ -52,6 +53,7 @@ public class BoardController {
 		ArrayList<BoardTypeVO> btList = 
 				boardService.getBoardType(user.getMe_authority());
 		mv.addObject("btList", btList);
+		mv.addObject("bo_ori_num", bo_ori_num == null? 0:bo_ori_num);
 		//작성할 타입이 없으면 작성 페이지로 갈 필요가 없어서 
 		//게시글 리스트로 이동시킴
 		if(btList.size() == 0) {

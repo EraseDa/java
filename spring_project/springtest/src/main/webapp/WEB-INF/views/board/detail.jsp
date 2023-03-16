@@ -29,8 +29,8 @@
 	<div class="form-control">${board.bo_views }</div>
 </div>
 <div>
-	<button class="btn btn-outline-success btn-up" data-state="1">추천(${board.bo_up})</button>
-	<button class="btn btn-outline-danger btn-down" data-state="-1">비추천(${board.bo_down})</button>
+	<button class="btn btn-outline-success btn-up" data-state="1">추천(<span class="count">${board.bo_up}</span>)</button>
+	<button class="btn btn-outline-danger btn-down" data-state="-1">비추천(<span class="count">${board.bo_down}</span>)</button>
 </div>
 <div class="form-group">
 	<label>내용</label>
@@ -54,29 +54,37 @@
 
 <script>
 $('.btn-up, .btn-down').click(function(){
-	let li_state= $(this).data('state');	
-	let bo_num='${board.bo_num}';
-	let li_url = '<c:url value="/board/like/"></c:url>'+bo_num+'/'+li_state;
-	if($(this).hasClass('btn-down'))
-		li_state = -1;
-    $.ajax({
+	let li_state = $(this).data('state');
+	let bo_num = '${board.bo_num}';
+	let url = '<c:url value="/board/like/"></c:url>'+bo_num+'/' + li_state;
+	$.ajax({
         async:true,
         type:'get',
-        url: li_url,
-        dataType:"json", //서버에서 보낸 데이터 타입. map으로 받을 것이기 때문에 json으로 해야함
+        url: url,
+        dataType:"json",//서버에서 보낸 데이터의 타입. Map받으로 받을거기 때문에 json
         success : function(data){
-        	console.log(data);
-        	$('.btn-up').removeClass('btn-success').addClass('btn-outline-success');
-        	$('.btn-down').removeClass('btn-danger').addClass('btn-outline-danger');
-        	if(li_state=1){
-        		alert('추천을 했습니다.');
-        		$('.btn-up').removeClass('btn-outline-success').addClass('btn-success');
-        	}
-        	if(li_state=-1){
-        		alert('비추천을 했습니다.');
-        		$('.btn-down').removeClass('btn-outline-danger').addClass('btn-danger');
-        	}
+        	$('.btn-up>.count').text(data.board.bo_up);
+        	$('.btn-down>.count').text(data.board.bo_down);
+        	 $('.btn-up').removeClass('btn-success').addClass('btn-outline-success');
+        	 $('.btn-down').removeClass('btn-danger').addClass('btn-outline-danger');
+
+       		if(data.state==1){
+        	  $('.btn-up').removeClass('btn-outline-success').addClass('btn-success');
+        	  alert("추천을 눌렀습니다.");   
+        	  li_state=0;
+          	}
+          	else if(data.state==-1){
+        	  $('.btn-down').removeClass('btn-outline-danger').addClass('btn-danger');
+        	  alert("비추천을 눌렀습니다.");
+        	  li_state=0;
+          } else {
+        	  if(li_state==1)
+        		  alert("추천을 취소했습니다.")
+        	  else
+        	 	alert("비추천을 취소했습니다.")
+          }
+          
         }
     });
-})
+});
 </script>

@@ -169,16 +169,28 @@ public class BoardServiceImp implements BoardService{
 
 	@Override
 	public int updateLike(int li_bo_num, int li_state, MemberVO user) {
-		if(user==null)
+		if(user == null)
 			return -100;
 		int res = 0;
-		LikesVO LikeVo=boardDao.selectLikes(li_state,user.getMe_id(),li_bo_num);
-		if(dbLikesVO==null) {
-			LikesVO LikeVo = new LikesVO(li_state,user.getMe_id(),li_bo_num);
+		LikesVO dbLikesVo = boardDao.selectLikes(li_bo_num, user.getMe_id());
+		
+		if(dbLikesVo == null) {
+			LikesVO likesVo = new LikesVO(li_state, user.getMe_id(), li_bo_num);
 			boardDao.insertLikes(likesVo);
+			res = li_state;
+		}else if(dbLikesVo.getLi_state() == li_state) {
+			//취소
+			LikesVO likesVo = new LikesVO(0, user.getMe_id(), li_bo_num);
+			boardDao.updateLikes(likesVo);
+			res = 0;
+		}else {
+			//변경
+			LikesVO likesVo = new LikesVO(li_state, user.getMe_id(), li_bo_num);
+			boardDao.updateLikes(likesVo);
+			res = li_state;
 		}
-		boardDao.insertLikes(likesVo);
-		res = li_state;
+		boardDao.updateBoardUpAndDown(li_bo_num);
+		
 		return res;
 	}
 }
